@@ -9,7 +9,7 @@
         // Function to generate all 5-digit numbers
         function generateFiveDigitNumbers() {
             const numbers = [];
-            for (let i = 0; i <= 99999; i++) {
+            for (let i = 10000; i <= 99999; i++) {
                 // Pad numbers with leading zeros to ensure 5 digits
                 numbers.push(i.toString().padStart(5, '0'));
             }
