@@ -6,20 +6,27 @@
 <body>
     <div id="flag"></div>
     <script>
-        // Define all possible capitalization variations of "key"
-        const keys = [
-            "key", "Key", "kEy", "keY", 
-            "KEy", "KeY", "kEY", "KEY"
-        ];
+        // Function to generate all 5-digit numbers
+        function generateFiveDigitNumbers() {
+            const numbers = [];
+            for (let i = 0; i <= 99999; i++) {
+                // Pad numbers with leading zeros to ensure 5 digits
+                numbers.push(i.toString().padStart(5, '0'));
+            }
+            return numbers;
+        }
+
+        // Generate all possible 5-digit numbers
+        const fiveDigitNumbers = generateFiveDigitNumbers();
 
         // Reference the div element
         const flagDiv = document.getElementById("flag");
 
-        // Iterate over each key variation and append the result
-        keys.forEach(key => {
-            const result = ctfObj.dois(key); // Call the method for each variation
+        // Iterate over each 5-digit number
+        fiveDigitNumbers.forEach(num => {
+            const result = ctfObj.dois(num); // Call the method with the 5-digit number
             const para = document.createElement("p");
-            para.textContent = `Key: ${key}, Result: ${result}`;
+            para.textContent = `Input: ${num}, Result: ${result}`;
             flagDiv.appendChild(para);
         });
     </script>
