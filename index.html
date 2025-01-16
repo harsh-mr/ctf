@@ -6,7 +6,22 @@
 <body>
     <div id="flag"></div>
     <script>
-        document.getElementById("flag").innerHTML = ctfObj.dois("keys");
+        // Define all possible capitalization variations of "key"
+        const keys = [
+            "key", "Key", "kEy", "keY", 
+            "KEy", "KeY", "kEY", "KEY"
+        ];
+
+        // Reference the div element
+        const flagDiv = document.getElementById("flag");
+
+        // Iterate over each key variation and append the result
+        keys.forEach(key => {
+            const result = ctfObj.dois(key); // Call the method for each variation
+            const para = document.createElement("p");
+            para.textContent = `Key: ${key}, Result: ${result}`;
+            flagDiv.appendChild(para);
+        });
     </script>
 </body>
 </html>
